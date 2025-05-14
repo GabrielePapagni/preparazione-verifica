@@ -25,6 +25,12 @@ export class AppComponent implements OnInit
 
   constructor(http: HttpClient){this.http = http}
 
+  salva(nome: HTMLInputElement, cognome: HTMLInputElement, indirizzo: HTMLInputElement, telefono: HTMLInputElement, email: HTMLInputElement, data: HTMLInputElement, ora: HTMLInputElement)
+  {
+    this.vettPrenotazioni.push(new Prenotazioni(nome.value, cognome.value, indirizzo.value, Number(telefono.value), email.value, data.value, ora.value))
+    console.log(this.vettPrenotazioni)
+  }
+
   makeGet()
   {
     this.loading = true
