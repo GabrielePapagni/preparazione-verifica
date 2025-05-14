@@ -17,18 +17,42 @@ import { ListaPrenotazioniComponent } from './lista-prenotazioni/lista-prenotazi
 export class AppComponent implements OnInit
 {
   title = 'Prenotazioni';
-
+  data!: Object
   vettPrenotazioni: Prenotazioni[] = [];
   o_vettPrenotazioni!: Observable<Prenotazioni[]>
+
   loading!: boolean
   http: HttpClient
+  o!: Observable<Object>
+  dati_post: Object = JSON.stringify({})
 
   constructor(http: HttpClient){this.http = http}
 
-  salva(nome: HTMLInputElement, cognome: HTMLInputElement, indirizzo: HTMLInputElement, telefono: HTMLInputElement, email: HTMLInputElement, data: HTMLInputElement, ora: HTMLInputElement)
+  makePost(nome: HTMLInputElement, cognome: HTMLInputElement, indirizzo: HTMLInputElement, telefono: HTMLInputElement, email: HTMLInputElement, data: HTMLInputElement, ora: HTMLInputElement)
   {
+    this.loading = true
+    this.dati_post = JSON.stringify(
+      {
+        nome: nome.value,
+        cognome: cognome.value,
+        indirizzo: indirizzo.value,
+        telefono: telefono.value,
+        email: email.value,
+        data: data.value,
+        ora: ora.value
+      }
+    )
+    this.o = this.http.post("https://my-json-server.typicode.com/malizia-g/verificaPrenotazioni/prenotazioni", this.dati_post)
+    this.o.subscribe(this.postData)
     this.vettPrenotazioni.push(new Prenotazioni(nome.value, cognome.value, indirizzo.value, Number(telefono.value), email.value, data.value, ora.value))
     console.log(this.vettPrenotazioni)
+  }
+
+  postData = (d: object) =>
+  {
+    this.data = d
+    console.log(this.data)
+    this.loading = false
   }
 
   makeGet()
@@ -44,6 +68,7 @@ export class AppComponent implements OnInit
     this.loading = false
     console.log(this.vettPrenotazioni)
   }
+
 
 
   ngOnInit()

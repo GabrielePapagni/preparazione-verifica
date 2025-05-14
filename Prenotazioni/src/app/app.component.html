@@ -4,10 +4,10 @@
 <p> Cognome: <input type="text" #cognome> </p>
 <p> Indirizzo: <input type="text" #indirizzo> </p>
 <p> Telefono: <input type="number" #telefono> </p>
-<p> Email: <input type="text" #email> </p>
-<p> Data prenotazione: <input type="text" #data> </p>
-<p> Ora prenotazione: <input type="text" #ora> </p>
-<button (click)="salva(nome, cognome, indirizzo, telefono, email, data, ora)">Papagni fuffa guru</button>
+<p> Email: <input type="email" #email> </p>
+<p> Data prenotazione: <input type="date" #data> </p>
+<p> Ora prenotazione: <input type="time" #ora> </p>
+<button (click)="makePost(nome, cognome, indirizzo, telefono, email, data, ora)">Papagni fuffa guru</button>
 
 @if(loading)
 {
