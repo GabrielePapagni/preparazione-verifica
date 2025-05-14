@@ -5,5 +5,21 @@
 <p> Indirizzo: <input type="text" #indirizzo> </p>
 <p> Telefono: <input type="number" #telefono> </p>
 <p> Email: <input type="text" #email> </p>
-<p> Data prenotazione: <input type="text" #dataP> </p>
-<p> Ora prenotazione: <input type="text" #oraP> </p>
+<p> Data prenotazione: <input type="text" #data> </p>
+<p> Ora prenotazione: <input type="text" #ora> </p>
+
+<div>
+    @for(pre of vettPrenotazioni; track pre)
+    {
+        <br>
+        <hr>
+        <p>{{pre.nome}}</p>
+        <p>{{pre.cognome}}</p>
+        <p>{{pre.indirizzo}}</p>
+        <p>{{pre.telefono}}</p>
+        <p>{{pre.email}}</p>
+        <p>{{pre.data}}</p>
+        <p>{{pre.ora}}</p>
+        
+    }
+</div>

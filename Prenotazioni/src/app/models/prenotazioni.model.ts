@@ -4,6 +4,7 @@ export interface Prenotazioni {
     indirizzo: string;
     telefono: number;
     email: string;
-    dataP: string;
-    oraP: string;
+    data: string;
+    ora: string;
+    
 }
