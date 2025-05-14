@@ -8,18 +8,16 @@
 <p> Data prenotazione: <input type="text" #data> </p>
 <p> Ora prenotazione: <input type="text" #ora> </p>
 
+@if(loading)
+{
+    <p>Caricamento...</p>
+}
 <div>
     @for(pre of vettPrenotazioni; track pre)
     {
         <br>
         <hr>
-        <p>{{pre.nome}}</p>
-        <p>{{pre.cognome}}</p>
-        <p>{{pre.indirizzo}}</p>
-        <p>{{pre.telefono}}</p>
-        <p>{{pre.email}}</p>
-        <p>{{pre.data}}</p>
-        <p>{{pre.ora}}</p>
+        <app-lista-prenotazioni [prenotazione]="pre"></app-lista-prenotazioni>
         
     }
 </div>
