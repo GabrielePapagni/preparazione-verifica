@@ -46,6 +46,13 @@ export class AppComponent implements OnInit
     this.o.subscribe(this.postData)
     this.vettPrenotazioni.push(new Prenotazioni(nome.value, cognome.value, indirizzo.value, Number(telefono.value), email.value, data.value, ora.value))
     console.log(this.vettPrenotazioni)
+    nome.value = ""
+    cognome.value = ""
+    indirizzo.value = ""
+    telefono.value = ""
+    email.value = ""
+    data.value = ""
+    ora.value = ""
   }
 
   postData = (d: object) =>

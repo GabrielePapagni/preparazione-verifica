@@ -1,24 +1,39 @@
-<h2>Form di Inserimento</h2>
+<h2 class="text-center mt-3">Form di Inserimento</h2>
+<div class="container mt-5 mb-5">
+    <div class="mt-4">
+        <p> Nome: <input type="text" #nome> </p>
+    </div>
+    <div class="mt-4">
+        <p> Cognome: <input type="text" #cognome> </p>
+    </div>
+    <div class="mt-4">
+        <p> Indirizzo: <input type="text" #indirizzo> </p>
+    </div>
+    <div class="mt-4">
+        <p> Telefono: <input type="number" #telefono> </p>
+    </div>
+    <div class="mt-4">
+        <p> Email: <input type="email" #email> </p>
+    </div>
+    <div class="mt-4">
+        <p> Data prenotazione: <input type="date" #data> </p>
+    </div>
+    <div class="mt-4">
+        <p> Ora prenotazione: <input type="time" #ora> </p>
+    </div>
+    <button (click)="makePost(nome, cognome, indirizzo, telefono, email, data, ora)" class = "btn border btn-dark">Papagni fuffa guru</button>
 
-<p> Nome: <input type="text" #nome> </p>
-<p> Cognome: <input type="text" #cognome> </p>
-<p> Indirizzo: <input type="text" #indirizzo> </p>
-<p> Telefono: <input type="number" #telefono> </p>
-<p> Email: <input type="email" #email> </p>
-<p> Data prenotazione: <input type="date" #data> </p>
-<p> Ora prenotazione: <input type="time" #ora> </p>
-<button (click)="makePost(nome, cognome, indirizzo, telefono, email, data, ora)">Papagni fuffa guru</button>
-
-@if(loading)
-{
-    <p>Caricamento...</p>
-}
-<div>
-    @for(pre of vettPrenotazioni; track pre)
+    @if(loading)
     {
-        <br>
-        <hr>
-        <app-lista-prenotazioni [prenotazione]="pre"></app-lista-prenotazioni>
-        
+        <p>Caricamento...</p>
     }
+    <div class="container">
+        @for(pre of vettPrenotazioni; track pre)
+        {
+            <br>
+            <hr>
+            <app-lista-prenotazioni [prenotazione]="pre"></app-lista-prenotazioni>
+            
+        }
+    </div>
 </div>
